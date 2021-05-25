@@ -1,1 +1,45 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prueba</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css.css">
+  </head>
+  <body>
+    <header>
+      <h1>Datos</h1>
+    </header>
+    <form id="forma" action="javascript:calcula()">
+      <p><label>Boleta : <input id="boleta" type="number"></label></p>
+      <p><label>Nombre : <input id="nombre" type="text"></label></p>
+      <p><label>Grupo : <input id="grupo" type="text"></label></p>
+      <p><label>Materia : <input id="materia" type="text"></label></p>
+      <p><label>Fecha : <input id="fecha" type="date"></label></p>
+      <p><button>Procesa</button></p>
+      <p><output id="outSalida"></output></p>
+    </form>
+    <footer><p>Copyright &copy; 2021 Jose Arturo Piña</p></footer>
+    <script>
+      //function calcula(){
+        var forma = document.getElementById("forma"),
+            outSalida = document.getElementById("outSalida"),
+            txtfecha = forma["fecha"];
+            /*salidaNombre = document.getElementById("salidaNombre"),
+            salidaGrupo = document.getElementById("salidaGrupo"),
+            salidaMateria = document.getElementById("salidaMateria"),
+            salidaFecha = document.getElementById("salidaFecha");*/
+        function calcula(){
+          var boleta = forma["boleta"].value.trim(),
+              nombre = forma["nombre"].value.trim(),
+              grupo = forma["grupo"].value.trim(),
+              materia = forma["materia"].value.trim(),
+              fecha = new Date(txtfecha.value);
+          outSalida.textContent = "Boleta: " + boleta + " nombre: " + nombre + " Grupo: " + grupo
+                                  + " Materia: " + materia + " Fecha: " + fecha;
+          
+        }
+     // }
+    </script>
+  </body>
+</html>
