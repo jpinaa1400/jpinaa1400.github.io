@@ -28,21 +28,6 @@
     <p><button type="button" onclick="terminaSesión()">Terminar Sesión</button></p>
     <footer><p>Copyright &copy; 2021 Jose Arturo Piña</p></footer>
     <script>
-        var forma = document.getElementById("forma"),
-            outSalida = document.getElementById("outSalida"),
-            txtfecha = forma["fecha"];
-
-        function calcula(){
-          var boleta = forma["boleta"].value.trim(),
-              nombre = forma["nombre"].value.trim(),
-              grupo = forma["grupo"].value.trim(),
-              materia = forma["materia"].value.trim(),
-              fecha = new Date(txtfecha.value);
-          outSalida.textContent = "Boleta: " + boleta + " nombre: " + nombre + " Grupo: " + grupo
-                                  + " Materia: " + materia + " Fecha: " + fecha;
-        }
-    </script>
-    <script>
       const auth = firebase.auth();
       /** Tipo de autenticación de usuarios. En este caso es con Google. */
       // @ts-ignore
@@ -68,6 +53,20 @@
         console.log(e);
         alert(e.message);
       }
+      
+        var forma = document.getElementById("forma"),
+            outSalida = document.getElementById("outSalida"),
+            txtfecha = forma["fecha"];
+
+        function calcula(){
+          var boleta = forma["boleta"].value.trim(),
+              nombre = forma["nombre"].value.trim(),
+              grupo = forma["grupo"].value.trim(),
+              materia = forma["materia"].value.trim(),
+              fecha = new Date(txtfecha.value);
+          outSalida.textContent = "Boleta: " + boleta + " nombre: " + nombre + " Grupo: " + grupo
+                                  + " Materia: " + materia + " Fecha: " + fecha;
+        }
     </script>
   </body>
 </html>
