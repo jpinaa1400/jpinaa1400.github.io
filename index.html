@@ -34,9 +34,6 @@
       const provider = new firebase.auth.GoogleAuthProvider();
       /* Configura el proveedor de Google para que permita seleccionar de una
        * lista. */
-      provider.setCustomParameters({ prompt: "select_account" });
-      /* Recibe una función que se invoca cada que hay un cambio en la
-       * autenticación y recibe el modelo con las características del usuario.*/
  
       /** Termina la sesión. */
       async function terminaSesión() {
