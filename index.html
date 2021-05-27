@@ -27,14 +27,10 @@
     </form>
     <footer><p>Copyright &copy; 2021 Jose Arturo Piña</p></footer>
     <script>
-      //function calcula(){
         var forma = document.getElementById("forma"),
             outSalida = document.getElementById("outSalida"),
             txtfecha = forma["fecha"];
-            /*salidaNombre = document.getElementById("salidaNombre"),
-            salidaGrupo = document.getElementById("salidaGrupo"),
-            salidaMateria = document.getElementById("salidaMateria"),
-            salidaFecha = document.getElementById("salidaFecha");*/
+
         function calcula(){
           var boleta = forma["boleta"].value.trim(),
               nombre = forma["nombre"].value.trim(),
@@ -43,9 +39,34 @@
               fecha = new Date(txtfecha.value);
           outSalida.textContent = "Boleta: " + boleta + " nombre: " + nombre + " Grupo: " + grupo
                                   + " Materia: " + materia + " Fecha: " + fecha;
-          
         }
-     // }
+    </script>
+    <script>
+      const auth = firebase.auth();
+      /** Tipo de autenticación de usuarios. En este caso es con Google. */
+      // @ts-ignore
+      const provider = new firebase.auth.GoogleAuthProvider();
+      /* Configura el proveedor de Google para que permita seleccionar de una
+       * lista. */
+      provider.setCustomParameters({ prompt: "select_account" });
+      /* Recibe una función que se invoca cada que hay un cambio en la
+       * autenticación y recibe el modelo con las características del usuario.*/
+ 
+      /** Termina la sesión. */
+      async function terminaSesión() {
+        try {
+          await auth.signOut();
+        } catch (e) {
+          procesaError(e);
+        }
+      }
+      /** Procesa un error. Muestra el objeto en la consola y un cuadro de
+       * alerta con el mensaje.
+       * @param {Error} e descripción del error. */
+      function procesaError(e) {
+        console.log(e);
+        alert(e.message);
+      }
     </script>
   </body>
 </html>
